@@ -1,0 +1,23 @@
+OpenAdvocate WriteClearly
+
+** Setup
+
+Add the following bookmarklet code as a bookmark in the browser:
+(replace {domain} with the actual domain)
+
+---
+  javascript: (function () {
+    var wcDomain = 'writeclearly.openadvocate.org';
+    var jsCode = document.createElement('script');
+    if (window.location.protocol == "https:") {
+      jsCode.setAttribute('src', 'https://' + wcDomain + '/bookmarklet.js');
+    }
+    else {
+      jsCode.setAttribute('src', 'http://' + wcDomain + '/bookmarklet.js');
+    }
+    document.body.appendChild(jsCode);
+   }());
+---
+
+In bookmarklet.js, set the serviceUrl variable to the domain name of
+the WC service.

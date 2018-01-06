@@ -1,0 +1,67 @@
+Less is more! Be concise.
+Break a large document into separate topics.
+Use even shorter paragraphs on a web page  than you would on paper.
+Use short lists and bullets to organize information.
+Use even more bulleted lists on a web page  than you would on paper.
+Use more headings to structure text on a web page. Questions often make great headings.
+Present each topic or point separately and use descriptive section headings.
+Keep the information on a page to no more than two levels: headings and sub-headings.
+Write (especially page titles) using the same words your readers would use when doing a web search for the information.
+Don't assume your readers have knowledge of the subject or have read related pages on your site. Clearly explain things so each page can stand on its own.
+Never use "click here" as a link.  Link language should describe what your reader will get if they click the link.
+Eliminate unnecessary words.
+Organize content so that information and procedures are presented in the order in which the material will make sense to the reader.
+Provide clarity by using examples, anecdotes, using lists, emphasizing key terms and steps, and a clean, uncluttered, well-ordered design.
+Write short sentences; keep the subject, verb, and object close. Place words carefully, and avoid double negatives.
+Write short paragraphs consisting of one topic and link to other paragraphs with transitions such as “next” or “once you have...”.
+Write to the reader, using second-person pronouns. Examples: “You must provide written proof”; “We will respond within seven business days.”
+To indicate a requirement, use “must”, not “shall”. Example: “You must include a sample.”
+Avoid smothered verbs. Write “We will decide soon,” rather than “We will make a decision soon.”
+Allow contractions; they’re conversational.
+If possible, use a question-answer format with only one topic per question.  Phrase question the way your readers are expected to ask it.
+Use present tense. Example:  “You can soon file a claim if you were eligible during the stated period,” not “Those who were eligible during the stated period will be given an opportunity to file a claim.”
+Minimize jargon acronyms and initialisms; use descriptive words instead.
+Omit unnecessary words.  Watch for verbose phrases.
+Avoid generic link wording like “Click here” or “More”. If the title of a web page is the destination, use the title as the link.
+Avoid generic link wording like “Click here” or “More”. Links should be as short as possible while clearly indicating where they will lead.
+A readable document should be at the 5th grade reading level to accommodate the average American reader.
+The Plain Writing Act of 2010 requires that federal agencies use "clear Government communication that the public can understand and use."
+Roughly 50% of native English-speaking Americans are unable to read at the 8th grade level; another 20% are only functionally literate.
+“The most valuable of all talents is that of never using two words when one will do.” -- Thomas Jefferson
+“To simplify complications is the first essential of success.” -- George Earle Buckle
+“Simplicity is the ultimate sophistication.” -- Leonardo da Vinci
+“The finest language is mostly made up of simple unimposing words.” -- George Eliot
+“You don't write because you want to say something, you write because you have something to say.” -- F. Scott Fitzgerald
+“The ability to simplify means to eliminate the unnecessary so that the necessary may speak.” -- Hans Hofmann
+“Speak properly, and in as few words as you can, but always plainly; for the end of speech is not ostentation, but to be understood.” -- William Penn
+“The biggest problem with communication is the illusion that it has been accomplished.” -- George Bernard Shaw
+“A sentence should contain no unnecessary words, a paragraph no unnecessary sentences…”  -- William Strunk and E. B. White
+“Use the smallest word that does the job.” -- E.B. White
+“Think like a wise man but communicate in the language of the people.” -- William Butler Yeats
+“Lawyers who use plain language know it doesn't just make good sense, it makes good cents. ” -- Christopher Balmford
+“A sentence should never be cruel and unusual.” -- William C. Burton
+“The language of law must not be foreign to the ears of those who are to obey it.” -- Learned Hand
+“If you can't explain something simply, you don't understand it well.” -- Albert Einstein
+“Everything should be as simple as it can be, yet no simpler.” -- Albert Einstein
+“Whatever is worth saying can be stated in fifty words or less.” -- Stan Ulam
+“Clear writing from your government is a civil right.” -- Al Gore
+"[Our regulatory system] must ensure that regulations are accessible, consistent, written in plain language, and easy to understand."  Presidential Executive Order #13563
+79% of users scan content they're seeing on a computer screen, but only 16% read web page content word for word.  -- Jakob Nielson
+“I never write ‘metropolis’ for seven cents when I can write ‘city’ and get paid the same.” -- Mark Twain
+“Do not accustom yourself to use big words for little matters.” -- Samuel Johnson
+“Don’t say ‘infinitely’ when you mean ‘very'; otherwise you’ll have no word left when you want to talk about something really infinite.” -- C.S. Lewis
+“One should aim not at being possible to understand, but at being impossible to misunderstand.” -- Quintilian
+“Use familiar words—words that your readers will understand, and not words they will have to look up.” -- James J. Kilpatrick
+“The trouble with so many of us is that we underestimate the power of simplicity.” -- Robert Stuberg
+“Making the simple complicated is commonplace; making the complicated simple, awesomely simple, that’s creativity.” -- Charles Mingus
+“Never use a long word when a short one will do.” -- George Orwell
+“Plain language has to do with clear and effective communication—nothing more or less.” -- Professor Joseph Kimble
+“Plain language is, or should be, every bit as accurate and precise as traditional legal writing. It is clearer—considerably clearer. It is usually shorter and faster. It is strongly preferred by readers. It would greatly improve the image of lawyers.” -- Professor Joseph Kimble
+“As for the notion that plain language is unsophisticated, once again just the reverse is true. It is much harder to simplify than to complicate.” -- Professor Joseph Kimble
+“Writing simply and directly only looks easy. It takes skill and work and fair time to compose.” -- Professor Joseph Kimble
+“Of course, legal writers must aim for precision. But plain language is an ally in that cause, not an enemy.” -- Professor Joseph Kimble
+“Plain language lays bare the ambiguities and uncertainties and conflicts that traditional style tends to hide.” -- Professor Joseph Kimble
+“Plain English is typically quite interesting to read. It’s robust and direct—the opposite of gaudy, pretentious language.” -- Bryan A Garner
+“You achieve plain English when you use the simplest, most straightforward way of expressing an idea. You can still choose interesting words. But you’ll avoid fancy ones that have everyday replacements meaning precisely the same thing.” -- Bryan A Garner
+“Most organisations are blind to the fact that writing style is a major predictor of organisational success.” -- Linda Harris
+“Genius is the ability to reduce the complicated to the simple.” -- C.W. Ceram
