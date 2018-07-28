@@ -1,6 +1,5 @@
 <?php
 
-define('DICTIONARY_API_KEY', 'INSERTKEY');
 require "conf.php";
 require "functions.php";
 
@@ -96,10 +95,6 @@ function analyze_text($input) {
     'boyfriend or girlfriend',
     'girlfriend or boyfriend',
   );
-
-  // Fetch the list of words that the current user has already chosen to ignore.
-  $ignored_polys = get_ignored_polys();
-  $ignored_polys = array_merge($ignored_polys, $gender_words);
 
   // Check for <img> tags without alt text.
   if (preg_match_all('#<img[^>]+>#i', $input['content'], $imgs)) {
@@ -235,8 +230,7 @@ function analyze_text($input) {
         }
       }
 
-      $badwords = file("en_bad.txt");
-      $goodwords = file("en_good.txt");
+      list($badwords, $goodwords) = get_word_suggestions();
 
       foreach ($test_array as $key => $sentence) {
         $CPW = round(strlen(str_replace(" ", "", $sentence)) / (str_word_count($sentence) + 0.1), 2);
@@ -271,68 +265,6 @@ function analyze_text($input) {
             continue;
           }
 
-          if (count_syllables($word) > 3 and $capnum == 0 && !in_array($trimmed_word, $ignored_polys)) {
-
-            // $word = preg_replace("/[^A-Za-z]/","",$word);
-            $word = str_replace('\\', '\\\\', $word);
-            $word = str_replace('(', '\\(', $word);
-            $word = str_replace(')', '\\)', $word);
-            $word = str_replace('/', '\\/', $word);
-            $word = trim($word);
-
-            $synonyms = get_synonyms($trimmed_word);
-            if (!empty($synonyms) && empty($input['json'])) {
-
-              foreach ($synonyms as $key => $synonym) {
-                $synonyms[$key] = '<span class="wc-replace-word wc-clickable">' . $synonym . '</span>';
-              }
-
-              if (count($synonyms) <= 3) {
-                $synonym_replace = '<span class="wc-poly-replace wc-synonym">
-                <span class="wc-poly-try-button wc-clickable">Try simpler word</span> 
-                <span class="wc-list"><span class="wc-close wc-clickable"><span>X</span></span> Synonyms: ' . implode(', ', $synonyms) . '</span>
-              </span>';
-              }
-              else {
-                $truncated_list = array_slice($synonyms, 0, 3);
-
-                $synonym_replace = '<span class="wc-poly-replace wc-synonym">
-                <span class="wc-poly-try-button wc-clickable">Try simpler word</span> 
-                <span class="wc-list wc-truncated"><span class="wc-close wc-clickable"><span>X</span></span> Synonyms: ' . implode(', ', $truncated_list) . ' ...<span class="wc-show-more wc-clickable"><span>&gt; MORE</span></span></span>
-                <span class="wc-list-full"><span class="wc-close wc-clickable"><span>X</span></span> Synonyms: ' . implode(', ', $synonyms) . '</span>
-              </span>';
-
-              }
-            }
-            else {
-              if (!empty($synonyms)) {
-                // Request is json format.
-                $suggestion_meta['synonyms'][$trimmed_word] = $synonyms;
-              }
-              else {
-                $synonym_replace = '';
-              }
-            }
-
-            if (empty($input['json'])) {
-              $markup = '<span class="wc-poly-container">
-            <span class="wc-hinted" data-word="' . $trimmed_word . '">' . $word . '</span> 
-            <span class="wc-hint wc-poly wc-clickable" data-word="' . $trimmed_word . '">Keep this word</span>
-            ' . $synonym_replace .
-                '</span>';
-            }
-            else {
-              // Json formatted output will have minimal markup - only to
-              // allow identification of replaced words.
-              $markup = '<span class="wc-hinted">' . $word . '</span>';
-            }
-
-            // Backslash needs to be quoted for regex.
-            $tooltips = preg_replace("/ " . $word . " /", ' ' . $markup . ' ', $tooltips);
-            $has_poly = TRUE;
-            $overall_has_poly = TRUE;
-          }
-
         }
 
         // Check all caps.
@@ -359,7 +291,8 @@ function analyze_text($input) {
 
           if (preg_match("/ " . $badword . " /", $tooltips)) {
             if (empty($input['json'])) {
-              $tooltips = preg_replace("/ " . $badword . " /", " <span class='wc-hinted'>" . $badword . "</span> <span class='wc-hint wc-synonym'>Synonym: " . trim($goodwords[$word_key]) . "?</span> ", $tooltips);
+              // Space makes sure this word is not hinted yet.
+              $tooltips = preg_replace("/ " . $badword . " /", " <span class='wc-poly-container'><span class='wc-hinted'>" . $badword . "</span> <span class='wc-hint wc-synonym'>Try: " . trim($goodwords[$word_key]) . "</span></span> ", $tooltips);
             }
             else {
               $tooltips = preg_replace("/ " . $badword . " /", " <span class='wc-hinted'>" . $badword . "</span>", $tooltips);

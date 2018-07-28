@@ -156,64 +156,22 @@ function oawc_ensure_db() {
 }
 
 /**
- * Retrieves a list of synonyms for a word from dictionaryapi, and caches
- * the restuls.
+ * Returns simpler alternative suggestions.
  */
-function get_synonyms($word) {
-  oawc_ensure_db();
+function get_word_suggestions() {
+  $handle = fopen('writeclearly-thesaurus.csv', 'r');
+  $bad_words = array();
+  $good_words = array();
 
-  $word = strtolower(trim($word));
-
-  // Check if the word is in the db.
-  $query = "SELECT synonyms FROM oawc_synonyms
-                WHERE word = '" . mysql_real_escape_string($word) . "'";
-
-  $result = mysql_query($query);
-  $row = mysql_fetch_assoc($result);
-  if ($row) {
-    $synonyms = array_filter(explode(',', $row['synonyms']));
-    return $synonyms;
-  }
-
-  // Not in the db. Request from the api.
-  $synonyms = array();
-
-  $uri = "http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/" . urlencode($word) . "?key=" . urlencode(DICTIONARY_API_KEY);
-  $data = file_get_contents($uri);
-  $xml = simplexml_load_string($data);
-
-  if (isset($xml->entry)) {
-    foreach ($xml->entry as $key => $item) {
-      foreach ($item->sens as $sens) {
-        $syn = (string)$sens->syn;
-        $synonyms = array_merge($synonyms, explode(',', $syn));
+  if ($handle !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      if (count($data) > 1) {
+        $bad_words[] = trim($data[0]);
+        $good_words[] = trim($data[1]);
       }
     }
+    fclose($handle);
   }
 
-  $filtered = array();
-  foreach ($synonyms as $synonym) {
-    if (count_syllables($synonym) > 2) {
-      continue;
-    }
-
-    $filtered[] = trim($synonym);
-
-    if (count($filtered) >= 20) {
-      // Don't store more than 20.
-      break;
-    }
-  }
-
-  // Save in the db.
-  $query = "REPLACE INTO oawc_synonyms
-                (`word`, `synonyms`)
-                VALUES (
-                  '" . mysql_real_escape_string($word) . "',
-                  '" . mysql_real_escape_string(implode(',', $filtered)) . "'
-                );";
-
-  mysql_query($query);
-
-  return $filtered;
+  return array($bad_words, $good_words);
 }
